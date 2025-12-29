@@ -119,6 +119,58 @@ export default function Practice() {
     setTimeSpent(time);
   }, []);
 
+  const handleCheckAnswer = useCallback(() => {
+    if (!focusedCell) return;
+
+    const key = `${focusedCell.rowNum}-${focusedCell.colNum}`;
+    const userAnswer = answers.get(key);
+
+    // Only check if cell has user input
+    if (userAnswer === null) return;
+
+    const correctAnswer = calculateCorrectAnswer(
+      focusedCell.rowNum,
+      focusedCell.colNum,
+    );
+
+    const newCheckedKeys = new Set(checkedKeys);
+    const newIncorrectKeys = new Set(incorrectKeys);
+
+    // Mark this cell as checked
+    newCheckedKeys.add(key);
+
+    // Check if answer is correct
+    if (userAnswer === correctAnswer) {
+      newIncorrectKeys.delete(key);
+    } else {
+      newIncorrectKeys.add(key);
+    }
+
+    // Recalculate statistics from all checked cells
+    let correct = 0;
+    let incorrect = 0;
+
+    newCheckedKeys.forEach((checkedKey) => {
+      if (newIncorrectKeys.has(checkedKey)) {
+        incorrect++;
+      } else {
+        correct++;
+      }
+    });
+
+    setCheckedKeys(newCheckedKeys);
+    setIncorrectKeys(newIncorrectKeys);
+    setCorrectAnswers(correct);
+    setIncorrectAnswers(incorrect);
+    setTotalAnswered(newCheckedKeys.size);
+
+    const calculatedAccuracy =
+      newCheckedKeys.size > 0
+        ? Math.round((correct / newCheckedKeys.size) * 100)
+        : 0;
+    setAccuracy(calculatedAccuracy);
+  }, [focusedCell, answers, checkedKeys, incorrectKeys, calculateCorrectAnswer]);
+
   const handleCheckAllAnswers = useCallback(() => {
     const newCheckedKeys = new Set<string>();
     const newIncorrectKeys = new Set<string>();
