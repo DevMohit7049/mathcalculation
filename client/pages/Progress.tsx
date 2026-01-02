@@ -133,7 +133,7 @@ export default function Progress() {
                           {getOperationLabel(result.type)}
                         </td>
                         <td className="px-4 py-3 text-slate-700">
-                          {result.digits}-Digit
+                          {result.type === 'face-two' ? '5x5 Grid' : `${('digits' in result) ? result.digits : '-'}-Digit`}
                         </td>
                         <td className="px-4 py-3 text-slate-700">
                           <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">
@@ -154,7 +154,7 @@ export default function Progress() {
                           </span>
                         </td>
                         <td className="px-4 py-3 text-slate-700">
-                          {formatTime(result.timeSpent)}
+                          {result.type === 'face-two' ? '-' : formatTime(('timeSpent' in result) ? result.timeSpent : 0)}
                         </td>
                       </tr>
                     ))}
