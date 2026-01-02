@@ -6,7 +6,7 @@ export default function Progress() {
   const navigate = useNavigate();
   const { type } = useParams<{ type: string }>();
 
-  const results = type ? getResultsByType(type) : getResults();
+  const results: Result[] = type ? (type === 'face-two' ? getFaceTwoResults() : getResultsByType(type)) : getResults();
   const avgAccuracy = type ? getAverageAccuracy(type) : getAverageAccuracy();
 
   const getOperationLabel = (op: string) => {
