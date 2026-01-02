@@ -278,6 +278,14 @@ export default function FaceTwo() {
                   <span>🔄</span> Refresh
                 </button>
                 <button
+                  onClick={handleSaveResult}
+                  className="flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 lg:px-6 py-2 sm:py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition text-xs sm:text-sm lg:text-base"
+                >
+                  <span>💾</span>{" "}
+                  <span className="hidden sm:inline">Save Result</span>
+                  <span className="sm:hidden">Save</span>
+                </button>
+                <button
                   onClick={handleGoHome}
                   className="flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 lg:px-6 py-2 sm:py-3 bg-slate-600 text-white font-semibold rounded-lg hover:bg-slate-700 transition text-xs sm:text-sm lg:text-base"
                 >
