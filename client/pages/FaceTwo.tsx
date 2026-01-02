@@ -136,6 +136,10 @@ export default function FaceTwo() {
     setAccuracy(calculatedAccuracy);
   }, [userAnswers, gridData]);
 
+  const handleTimeUpdate = useCallback((time: number) => {
+    setTimeSpent(time);
+  }, []);
+
   const handleRefreshProblems = () => {
     const newGrid: number[][] = [];
     for (let i = 0; i < 5; i++) {
@@ -153,6 +157,20 @@ export default function FaceTwo() {
     setIncorrectAnswers(0);
     setAccuracy(0);
     setTotalAnswered(0);
+  };
+
+  const handleSaveResult = () => {
+    const result = {
+      id: `${Date.now()}`,
+      type: 'face-two' as const,
+      totalProblems: totalAnswered,
+      correctAnswers,
+      incorrectAnswers,
+      accuracy,
+      timestamp: Date.now(),
+    };
+    saveFaceTwoResult(result);
+    navigate('/');
   };
 
   const handleGoHome = () => {
