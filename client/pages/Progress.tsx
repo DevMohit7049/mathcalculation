@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { getResults, getResultsByType, getAverageAccuracy } from '@/lib/storage';
+import { getResults, getResultsByType, getAverageAccuracy, getFaceTwoResults } from '@/lib/storage';
+import type { Result } from '@/lib/storage';
 
 export default function Progress() {
   const navigate = useNavigate();
