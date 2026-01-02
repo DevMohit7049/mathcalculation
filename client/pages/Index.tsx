@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getResults, getAverageAccuracy } from "@/lib/storage";
+import type { Result } from "@/lib/storage";
 
 export default function Index() {
   const [selectedType, setSelectedType] = useState<string | null>(null);
