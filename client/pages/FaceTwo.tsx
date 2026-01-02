@@ -21,6 +21,8 @@ export default function FaceTwo() {
   const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [accuracy, setAccuracy] = useState(0);
   const [totalAnswered, setTotalAnswered] = useState(0);
+  const [timerActive, setTimerActive] = useState(true);
+  const [timeSpent, setTimeSpent] = useState(0);
 
   // Generate initial grid data (5x5)
   useEffect(() => {
