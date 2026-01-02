@@ -91,7 +91,7 @@ export default function Index() {
                     </p>
                     <p className="text-3xl font-bold text-orange-600">
                       {Math.round(
-                        results.reduce((sum, r) => sum + r.timeSpent, 0) / 60,
+                        results.reduce((sum, r) => sum + ('timeSpent' in r ? r.timeSpent : 0), 0) / 60,
                       )}
                       m
                     </p>
