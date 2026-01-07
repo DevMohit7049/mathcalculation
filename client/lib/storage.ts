@@ -12,11 +12,13 @@ export interface PracticeResult {
 
 export interface FaceTwoResult {
   id: string;
-  type: "face-two";
+  type: "phase-two";
+  gridSize: number;
   totalProblems: number;
   correctAnswers: number;
   incorrectAnswers: number;
   accuracy: number;
+  timeSpent: number;
   timestamp: number;
 }
 
@@ -76,15 +78,15 @@ export const getResultsByType = (type: string): Result[] => {
 
 export const getFaceTwoResults = (): FaceTwoResult[] => {
   const data = getStorageData();
-  return data.results.filter((r) => r.type === "face-two") as FaceTwoResult[];
+  return data.results.filter((r) => r.type === "phase-two") as FaceTwoResult[];
 };
 
 export const getAverageAccuracy = (type?: string): number => {
   const data = getStorageData();
   let results: Result[];
 
-  if (type === "face-two") {
-    results = data.results.filter((r) => r.type === "face-two");
+  if (type === "phase-two") {
+    results = data.results.filter((r) => r.type === "phase-two");
   } else if (type) {
     results = data.results.filter((r) => r.type === type);
   } else {

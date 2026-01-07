@@ -12,7 +12,7 @@ export default function Progress() {
   const { type } = useParams<{ type: string }>();
 
   const results: Result[] = type
-    ? type === "face-two"
+    ? type === "phase-two" || type === "face-two"
       ? getFaceTwoResults()
       : getResultsByType(type)
     : getResults();
@@ -24,7 +24,8 @@ export default function Progress() {
       subtraction: "Subtraction",
       multiplication: "Multiplication",
       division: "Division",
-      "face-two": "Face Two Calculation",
+      "phase-two": "Phase Two Calculation",
+      "face-two": "Phase Two Calculation",
     };
     return labels[op] || op;
   };
@@ -155,8 +156,8 @@ export default function Progress() {
                           {getOperationLabel(result.type)}
                         </td>
                         <td className="px-4 py-3 text-slate-700">
-                          {result.type === "face-two"
-                            ? "5x5 Grid"
+                          {result.type === "phase-two"
+                            ? `${"gridSize" in result ? result.gridSize : "5"}×${"gridSize" in result ? result.gridSize : "5"}`
                             : `${"digits" in result ? result.digits : "-"}-Digit`}
                         </td>
                         <td className="px-4 py-3 text-slate-700">
@@ -178,11 +179,9 @@ export default function Progress() {
                           </span>
                         </td>
                         <td className="px-4 py-3 text-slate-700">
-                          {result.type === "face-two"
-                            ? "-"
-                            : formatTime(
-                                "timeSpent" in result ? result.timeSpent : 0,
-                              )}
+                          {formatTime(
+                            "timeSpent" in result ? result.timeSpent : 0,
+                          )}
                         </td>
                       </tr>
                     ))}
