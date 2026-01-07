@@ -31,7 +31,7 @@ export const FaceTwoGrid = ({
 
   const calculateColumnSum = (colIndex: number): number => {
     let sum = 0;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < gridSize; i++) {
       sum += gridData[i]?.[colIndex] || 0;
     }
     return sum;
@@ -39,7 +39,7 @@ export const FaceTwoGrid = ({
 
   const calculateGrandTotal = (): number => {
     let total = 0;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < gridSize; i++) {
       total += calculateRowSum(i);
     }
     return total;
