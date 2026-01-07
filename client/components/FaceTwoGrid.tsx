@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 
 interface FaceTwoGridProps {
   gridData: number[][];
+  gridSize: number;
   userAnswers: Map<string, number | null>;
   onAnswersChange?: (answers: Map<string, number | null>) => void;
   checkedKeys?: Set<string>;
