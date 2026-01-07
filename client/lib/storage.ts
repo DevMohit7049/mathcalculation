@@ -78,7 +78,7 @@ export const getResultsByType = (type: string): Result[] => {
 
 export const getFaceTwoResults = (): FaceTwoResult[] => {
   const data = getStorageData();
-  return data.results.filter((r) => r.type === "face-two") as FaceTwoResult[];
+  return data.results.filter((r) => r.type === "phase-two") as FaceTwoResult[];
 };
 
 export const getAverageAccuracy = (type?: string): number => {
