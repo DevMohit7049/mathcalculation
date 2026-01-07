@@ -24,7 +24,8 @@ export default function Progress() {
       subtraction: "Subtraction",
       multiplication: "Multiplication",
       division: "Division",
-      "face-two": "Face Two Calculation",
+      "phase-two": "Phase Two Calculation",
+      "face-two": "Phase Two Calculation",
     };
     return labels[op] || op;
   };
