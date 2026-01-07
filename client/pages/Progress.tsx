@@ -12,6 +12,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 export default function Progress() {
   const navigate = useNavigate();
   const { type } = useParams<{ type: string }>();
+  const [viewMode, setViewMode] = useState<"table" | "chart">("table");
 
   const results: Result[] = type
     ? type === "phase-two" || type === "face-two"
@@ -19,6 +20,42 @@ export default function Progress() {
       : getResultsByType(type)
     : getResults();
   const avgAccuracy = type ? getAverageAccuracy(type) : getAverageAccuracy();
+
+  // Group results by date
+  const groupedByDate = results.reduce(
+    (acc, result) => {
+      const date = new Date(result.timestamp);
+      const dateKey = date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+      if (!acc[dateKey]) {
+        acc[dateKey] = [];
+      }
+      acc[dateKey].push(result);
+      return acc;
+    },
+    {} as Record<string, Result[]>,
+  );
+
+  // Sort dates in reverse order (newest first)
+  const sortedDates = Object.keys(groupedByDate).sort((a, b) => {
+    return new Date(b).getTime() - new Date(a).getTime();
+  });
+
+  // Prepare chart data - show last 14 sessions with accuracy trend
+  const chartData = results
+    .sort((a, b) => a.timestamp - b.timestamp)
+    .slice(-14)
+    .map((result, index) => ({
+      session: index + 1,
+      accuracy: result.accuracy,
+      date: new Date(result.timestamp).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+      }),
+    }));
 
   const getOperationLabel = (op: string) => {
     const labels: Record<string, string> = {
