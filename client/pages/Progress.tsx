@@ -179,11 +179,9 @@ export default function Progress() {
                           </span>
                         </td>
                         <td className="px-4 py-3 text-slate-700">
-                          {result.type === "face-two"
-                            ? "-"
-                            : formatTime(
-                                "timeSpent" in result ? result.timeSpent : 0,
-                              )}
+                          {formatTime(
+                            "timeSpent" in result ? result.timeSpent : 0,
+                          )}
                         </td>
                       </tr>
                     ))}
