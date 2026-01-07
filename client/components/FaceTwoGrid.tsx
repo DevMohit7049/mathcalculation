@@ -11,6 +11,7 @@ interface FaceTwoGridProps {
 
 export const FaceTwoGrid = ({
   gridData,
+  gridSize,
   userAnswers,
   onAnswersChange,
   checkedKeys = new Set(),
