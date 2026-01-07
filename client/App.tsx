@@ -26,7 +26,7 @@ const App = () => (
             path="/practice/:type/digits/:digits/count/:count"
             element={<Practice />}
           />
-          <Route path="/face-two" element={<FaceTwo />} />
+          <Route path="/phase-two" element={<FaceTwo />} />
           <Route path="/progress/:type" element={<Progress />} />
           <Route path="/progress" element={<Progress />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
