@@ -135,7 +135,7 @@ export const FaceTwoGrid = ({
               <td className="border border-slate-200 bg-yellow-300 px-2 sm:px-3 lg:px-4 py-2 lg:py-3 text-center font-semibold text-slate-800 text-xs sm:text-sm lg:text-base min-w-12 sm:min-w-16 lg:min-w-20">
                 Col Sum
               </td>
-              {Array.from({ length: 5 }).map((_, colIndex) => (
+              {Array.from({ length: gridSize }).map((_, colIndex) => (
                 <td
                   key={colIndex}
                   className="border border-slate-300 bg-yellow-50 px-2 sm:px-3 lg:px-4 py-2 lg:py-3 text-center min-w-12 sm:min-w-16 lg:min-w-20"
