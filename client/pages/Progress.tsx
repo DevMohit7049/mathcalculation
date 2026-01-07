@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import {
   getResults,
   getResultsByType,
@@ -6,6 +7,7 @@ import {
   getFaceTwoResults,
 } from "@/lib/storage";
 import type { Result } from "@/lib/storage";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar } from "recharts";
 
 export default function Progress() {
   const navigate = useNavigate();
