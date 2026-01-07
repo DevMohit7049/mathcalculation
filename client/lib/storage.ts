@@ -85,8 +85,8 @@ export const getAverageAccuracy = (type?: string): number => {
   const data = getStorageData();
   let results: Result[];
 
-  if (type === "face-two") {
-    results = data.results.filter((r) => r.type === "face-two");
+  if (type === "phase-two") {
+    results = data.results.filter((r) => r.type === "phase-two");
   } else if (type) {
     results = data.results.filter((r) => r.type === type);
   } else {
