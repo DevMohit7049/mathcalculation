@@ -12,7 +12,7 @@ export default function Progress() {
   const { type } = useParams<{ type: string }>();
 
   const results: Result[] = type
-    ? type === "face-two"
+    ? type === "phase-two" || type === "face-two"
       ? getFaceTwoResults()
       : getResultsByType(type)
     : getResults();
