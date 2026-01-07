@@ -225,7 +225,8 @@ export default function FaceTwo() {
                 <span>Phase Two Calculation</span>
               </h1>
               <p className="text-slate-600 text-sm sm:text-base lg:text-lg">
-                Select a grid size to practice calculating row sums, column sums, and grand totals
+                Select a grid size to practice calculating row sums, column
+                sums, and grand totals
               </p>
             </div>
 
@@ -253,7 +254,10 @@ export default function FaceTwo() {
 
             <div className="bg-orange-50 border-l-4 border-orange-600 p-3 sm:p-4 lg:p-6 rounded">
               <p className="text-orange-800 text-xs sm:text-sm lg:text-base leading-relaxed">
-                <strong>Instructions:</strong> Calculate and fill in all row sums (rightmost column), column sums (bottom row), and grand total. Click "Check All" to validate your answers. Green means correct, red means incorrect.
+                <strong>Instructions:</strong> Calculate and fill in all row
+                sums (rightmost column), column sums (bottom row), and grand
+                total. Click "Check All" to validate your answers. Green means
+                correct, red means incorrect.
               </p>
             </div>
           </div>
@@ -280,7 +284,9 @@ export default function FaceTwo() {
           <div className="mb-4 sm:mb-6 lg:mb-8">
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 flex items-center gap-1 sm:gap-2 mb-1">
               <span className="text-lg sm:text-2xl lg:text-3xl">📊</span>
-              <span>Phase Two Calculation ({gridSize}×{gridSize})</span>
+              <span>
+                Phase Two Calculation ({gridSize}×{gridSize})
+              </span>
             </h1>
             <p className="text-slate-600 text-xs sm:text-sm lg:text-base">
               Calculate row sums, column sums, and the grand total
@@ -290,7 +296,10 @@ export default function FaceTwo() {
           <div className="mb-4 sm:mb-6 lg:mb-8 pb-4 sm:pb-6 lg:pb-6 border-b border-slate-200">
             <div className="bg-orange-50 border-l-4 border-orange-600 p-2 sm:p-3 lg:p-4 mb-3 sm:mb-4 lg:mb-6 rounded">
               <p className="text-orange-800 text-xs sm:text-sm lg:text-base leading-relaxed">
-                <strong>Instructions:</strong> Calculate and fill in the row sums (rightmost column), column sums (bottom row), and grand total. Click "Check All" to validate all your answers. Green means correct, red means incorrect.
+                <strong>Instructions:</strong> Calculate and fill in the row
+                sums (rightmost column), column sums (bottom row), and grand
+                total. Click "Check All" to validate all your answers. Green
+                means correct, red means incorrect.
               </p>
             </div>
 
@@ -309,7 +318,9 @@ export default function FaceTwo() {
                   <span className="hidden sm:inline">
                     {isPaused ? "Resume" : "Pause"}
                   </span>
-                  <span className="sm:hidden">{isPaused ? "Resume" : "Pause"}</span>
+                  <span className="sm:hidden">
+                    {isPaused ? "Resume" : "Pause"}
+                  </span>
                 </button>
                 <button
                   onClick={handleRefreshProblems}

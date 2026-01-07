@@ -25,11 +25,12 @@ export const Statistics = ({
   };
 
   const columns = timeSpent !== undefined ? 5 : 4;
-  const gridColsClass =
-    columns === 5 ? "sm:grid-cols-5" : "sm:grid-cols-4";
+  const gridColsClass = columns === 5 ? "sm:grid-cols-5" : "sm:grid-cols-4";
 
   return (
-    <div className={`grid grid-cols-2 ${gridColsClass} gap-2 sm:gap-3 lg:gap-4`}>
+    <div
+      className={`grid grid-cols-2 ${gridColsClass} gap-2 sm:gap-3 lg:gap-4`}
+    >
       <div className="text-center">
         <p className="text-xs sm:text-sm lg:text-base text-slate-600 font-medium mb-1 sm:mb-2">
           Correct Answers
